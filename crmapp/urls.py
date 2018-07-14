@@ -15,7 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from marketing.views import HomePage
+
 
 urlpatterns = [
+
+	# Marketing Pages
+	path('',HomePage.as_view(), name="home"),
+
+
     path('admin/', admin.site.urls),
+    #path('contact-us/(?P<lang>[\w-]+)/',ContactUs.as_view()),
 ]

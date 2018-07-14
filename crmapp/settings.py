@@ -73,7 +73,7 @@ ROOT_URLCONF = 'crmapp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -85,7 +85,6 @@ TEMPLATES = [
         },
     },
 ]
-
 WSGI_APPLICATION = 'crmapp.wsgi.application'
 
 
@@ -142,5 +141,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "crmapp/static"),
+    os.path.join(BASE_DIR, "static"),
 ]

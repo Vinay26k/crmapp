@@ -32,14 +32,16 @@ ENV_ROLE = get_env_variable('ENV_ROLE')
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '853)5@hmh9jm^zungq&cxe(xs0rk)(&r!h6h%q-mpfm&)%j98#'
+SECRET_KEY = get_env_variable('CRMAPP_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
+CRMAPP_DB_PASS = False
 if ENV_ROLE == 'development':
     DEBUG = True
     TEMPLATE_DEBUG = DEBUG
+    CRMAPP_DB_PASS = get_env_variable('CRMAPP_DB_PASS')
 
 ALLOWED_HOSTS = []
 
@@ -94,7 +96,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'crmapp',
         'USER': 'crmappadmin',
-        'PASSWORD': str(open('/home/vinay/pass.txt').read().split('\n')[0]),
+        'PASSWORD': CRMAPP_DB_PASS,
         'HOST': 'localhost',
         'PORT': '5432',
     }
